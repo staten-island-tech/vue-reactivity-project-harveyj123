@@ -1,21 +1,17 @@
 <template>
   <div id="app">
-  <h1>To-Do List</h1>
-  <ul>
-    <li>
-      <to-do-item></to-do-item>
-    </li>
-  </ul>
+      <home></home>
   </div>
 </template>
 
 
 <script>
-import ToDoItem from './components/ToDoItem.vue';
+import Home from './components/Start.vue';
+
 export default {
   name: 'App',
     components: {
-    ToDoItem
+    Home
   }
 }
 </script>
