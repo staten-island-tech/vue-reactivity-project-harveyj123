@@ -1,13 +1,14 @@
 <template>
-  <div class="home">
-    <button @click="changeStudent">Change from Leyna to Eva</button>
-    <h1 class="APTest">Hello {{ student }}</h1>
-    <ul class="myList">
-      <li v-for="animal in animals" :key="animal">{{ animal }}</li>
-    </ul>
-    <button v-if="isLoggedIn === false">Login</button>
-    <button v-else>Logout</button>
-  </div>
+  <header class="home">
+    <h1> {{title}} </h1>
+    <div>
+        <ul>
+          <li v-for="image in images" v-bind:key="image">
+            <img :src="image">
+          </li>
+        </ul>
+    </div>
+  </header>
   </template>
 
     
@@ -18,15 +19,13 @@ export default {
   components: {},
   data() {
     return {
-      student: "Leyna",
-      animals: ["Pig", "Cow", "Daniel", "Monkay", "Gibbon"],
-      isLoggedIn: true,
+      image : "https://www.personality-database.com/profile_images/349339.png",
+      title: ":3 asdasd",
+      images: ["https://www.personality-database.com/profile_images/349339.png", "https://www.personality-database.com/profile_images/349339.png","https://www.personality-database.com/profile_images/349339.png"]
     };
   },
   methods: {
-    changeStudent: function () {
-      this.student = "Eva";
-    },
+
   },
 };
 </script>
@@ -37,3 +36,4 @@ export default {
   color: red;
 }
 </style>
+
