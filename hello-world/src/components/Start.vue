@@ -1,8 +1,8 @@
 <template>
   <header class="home">
     <h1> {{title}} </h1>
-    <div>
-        <ul>
+    <div >
+        <ul class="img-gallery">
           <li v-for="image in images" v-bind:key="image">
             <img :src="image">
           </li>
@@ -32,8 +32,8 @@ export default {
 
 
 <style>
-.APTest {
-  color: red;
+.img-gallery {
+  list-style-type: none;
 }
 </style>
 
