@@ -11,7 +11,7 @@
     </div>
     <div class="img-gallery-container">
         <ul class="img-gallery">
-          <li v-for="image in images" v-bind:key="image" class="list">
+          <li @="image in images" v-bind:key="image" class="list">
             <img :src="image.variantImage" class="img">
           </li>
         </ul>
@@ -21,7 +21,7 @@
 
   </template>
 
-    
+    //click
 
 <script>
 export default {
@@ -58,7 +58,9 @@ export default {
     };
   },
   methods: {
-
+    updateImg(variantImage) {
+      this.image = variantImage
+    }
 }}
 </script>
 
@@ -79,23 +81,19 @@ body,
 .img-gallery-container-outer{
 display: flex;
 flex-direction: row;
-
 }
-
 .img-gallery-container-inner {
   height: 80%;
   width: 80%;
 }
-
 .img-gallery-container {
   display: flex;
-    justify-content: center;
-  align-content: center;
+  justify-content: center;
+align-content: center;
 margin: 2rem;
 height: 60%;
 width: 50%;
 }
-
 .img-gallery {
     display: flex;
     justify-content: center;
@@ -103,15 +101,12 @@ width: 50%;
    flex-wrap: wrap;
   list-style-type: none;
 }
-
 .list {
   padding: .5rem;
   margin: .5rem;
 }
-
 .img {
   width: 100%;
   height: auto;
 }
 </style>
-
