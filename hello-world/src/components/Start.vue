@@ -11,8 +11,8 @@
     </div>
     <div class="img-gallery-container">
         <ul class="img-gallery">
-          <li @="image in images" v-bind:key="image" class="list">
-            <img :src="image.variantImage" class="img">
+          <li v-for="image in images" v-bind:key="image" class="list">
+            <img @click="updateImg(image.variantImage)" :src="image.variantImage" class="img" id="listImg">
           </li>
         </ul>
     </div>
@@ -21,7 +21,7 @@
 
   </template>
 
-    //click
+
 
 <script>
 export default {
@@ -95,6 +95,8 @@ height: 60%;
 width: 50%;
 }
 .img-gallery {
+  height: 100%;
+  width: 100%;
     display: flex;
     justify-content: center;
     align-content: center;
@@ -102,8 +104,14 @@ width: 50%;
   list-style-type: none;
 }
 .list {
+    height: 25%;
+  width: 25%;
   padding: .5rem;
   margin: .5rem;
+}
+
+#listImg {
+  cursor: pointer;
 }
 .img {
   width: 100%;
