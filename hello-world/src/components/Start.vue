@@ -5,7 +5,17 @@
       </header>
       <div class="img-gallery-container-outer">
     <div class="img-gallery-container">
-      <img :src="image" id="img" >
+      <div class="img-cont">
+      <img :src="image" id="img" class="flex">
+      </div>
+      <div>
+<input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+<label for="jack">Jack</label>
+<input type="checkbox" id="john" value="John" v-model="checkedNames">
+<label for="john">John</label>
+<input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+<label for="mike">Mike</label>
+</div>
     </div>
     <div class="img-gallery-container" >
         <ul class="img-gallery">
@@ -15,12 +25,7 @@
         </ul>
     </div>
     </div>
-    <v-slider
-  dense
-  hint="Im a hint"
-  max="100"
-  min="-100"
-></v-slider>
+
        </section>
 
   </template>
@@ -78,9 +83,12 @@ body,
   margin: 0;
   box-sizing: border-box;
 }
-
+.flex {
+  display: flex;
+  flex-direction: column;
+}
 .home {
-  font-size: 4rem;
+  font-size: 2rem;
   height: 15%;
   width: 100%;
 }
@@ -89,24 +97,22 @@ body,
   width: 100vw;
 }
 .img-gallery-container-outer{
-  height: 100%;
-  width: 100%; 
 display: flex;
 flex-direction: row;
 }
-
+.img-gallery-container-inner {
+  height: 80%;
+  width: 80%;
+}
 .img-gallery-container {
+  flex-direction: column;
   display: flex;
   justify-content: center;
 align-content: center;
 margin: 2rem;
-height: 50%;
+height: 70%;
 width: 50%;
-
 }
-
-
-
 .img-gallery {
   height: 100%;
   width: 100%;
@@ -117,27 +123,25 @@ width: 50%;
   list-style-type: none;
 }
 .list {
-  display: flex;
-    justify-content: center;
-align-content: center;
-  margin: 1rem;
-    height: 50%;
+    height: 25%;
   width: 25%;
-
+  padding: .5rem;
+  margin: .5rem;
 }
 
 #listImg {
   cursor: pointer;
 }
-.img {                         
-
+.img {
   width: 100%;
   height: auto;
 }
-
+.img-cont {
+  height: 100%;
+  width: 100%;
+}
 #img {
-
-  width: auto;
-  height: auto;
+    width: 100%;
+  height: 100%;
 }
 </style>
