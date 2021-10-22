@@ -6,15 +6,20 @@
       <div class="img-gallery-container-outer">
     <div class="img-gallery-container">
       <div class="img-cont">
-      <img :src="image" id="img" class="flex">
+      <img :src="image" id="img">
       </div>
-      <div>
-<input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
-<label for="jack">Jack</label>
-<input type="checkbox" id="john" value="John" v-model="checkedNames">
-<label for="john">John</label>
-<input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
-<label for="mike">Mike</label>
+      <div class="opacity-change-container">
+<input type="radio" id="none" value="None" name="opacity" class="input">
+<label for="none" class="input">None</label>
+
+<input type="radio" id="op-val-1" value="0.25" name="opacity" class="input" >
+<label for="op-val-1" class="input">0.25</label>
+
+<input type="radio" id="op-val-2" value="0.50" name="opacity" class="input">
+<label for="op-val-2" class="input">0.50</label>
+
+<input type="radio" id="op-val-3" value="0.75" name="opacity" class="input">
+<label for="op-val-3" class="input">0.75</label>
 </div>
     </div>
     <div class="img-gallery-container" >
@@ -83,6 +88,7 @@ body,
   margin: 0;
   box-sizing: border-box;
 }
+
 .flex {
   display: flex;
   flex-direction: column;
@@ -99,18 +105,18 @@ body,
 .img-gallery-container-outer{
 display: flex;
 flex-direction: row;
+height: 70%;
+width: 100%;
 }
-.img-gallery-container-inner {
-  height: 80%;
-  width: 80%;
-}
+
+
 .img-gallery-container {
   flex-direction: column;
   display: flex;
   justify-content: center;
 align-content: center;
 margin: 2rem;
-height: 70%;
+height: 100%;
 width: 50%;
 }
 .img-gallery {
@@ -123,10 +129,10 @@ width: 50%;
   list-style-type: none;
 }
 .list {
-    height: 25%;
-  width: 25%;
-  padding: .5rem;
-  margin: .5rem;
+  margin: .2rem;
+    height: 50%;
+  width: 30%;
+
 }
 
 #listImg {
@@ -134,14 +140,27 @@ width: 50%;
 }
 .img {
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 .img-cont {
-  height: 100%;
-  width: 100%;
+margin: 0 auto;
+  height: 95%;
+  width: 95%;
 }
 #img {
-    width: 100%;
+    width: 60%;
   height: 100%;
+}
+
+.opacity-change-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 5%;
+  width: 100%;
+}
+
+.input {
+  margin: 1rem;
 }
 </style>
