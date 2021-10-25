@@ -9,17 +9,18 @@
       <img :src="image" id="img">
       </div>
       <div class="opacity-change-container">
-<input type="radio" id="none" value="None" name="opacity" class="input">
+<input type="radio" id="none" value="None" name="opacity"  v-model="V">
 <label for="none" class="input">None</label>
 
-<input type="radio" id="op-val-1" value="0.25" name="opacity" class="input" >
+<input type="radio" id="op-val-1" value="0.25" name="opacity"  v-model="V" >
 <label for="op-val-1" class="input">0.25</label>
 
-<input type="radio" id="op-val-2" value="0.50" name="opacity" class="input">
+<input type="radio" id="op-val-2" value="0.50" name="opacity"  v-model="V">
 <label for="op-val-2" class="input">0.50</label>
 
-<input type="radio" id="op-val-3" value="0.75" name="opacity" class="input">
+<input type="radio" id="op-val-3" value="0.75" name="opacity"  v-model="opValue">
 <label for="op-val-3" class="input">0.75</label>
+ <p>I am also feeling <em>{{V}}</em> today.</p>
 </div>
     </div>
     <div class="img-gallery-container" >
@@ -43,6 +44,7 @@ export default {
   components: {},
   data() {
     return {
+      V : "",
       image : "https://www.personality-database.com/profile_images/349339.png",
       title: "Image Changer :3",
       images: [ {
@@ -94,8 +96,9 @@ body,
   flex-direction: column;
 }
 .home {
+  text-align: center;
   font-size: 2rem;
-  height: 15%;
+  height: 5%;
   width: 100%;
 }
 .img-select-section {
@@ -105,7 +108,7 @@ body,
 .img-gallery-container-outer{
 display: flex;
 flex-direction: row;
-height: 70%;
+height: 95%;
 width: 100%;
 }
 
@@ -129,6 +132,7 @@ width: 50%;
   list-style-type: none;
 }
 .list {
+  
   margin: .2rem;
     height: 50%;
   width: 30%;
@@ -143,24 +147,28 @@ width: 50%;
   height: 100%;
 }
 .img-cont {
-margin: 0 auto;
-  height: 95%;
+
+  height: 90%;
   width: 95%;
 }
 #img {
-    width: 60%;
+
+    width: 100%;
   height: 100%;
 }
 
 .opacity-change-container {
+    text-align: center;
   display: flex;
   justify-content: center;
-  align-content: center;
-  height: 5%;
+  align-items: center;
+  height: 10%;
   width: 100%;
 }
 
 .input {
-  margin: 1rem;
+margin: 0 auto;
 }
+
+
 </style>
