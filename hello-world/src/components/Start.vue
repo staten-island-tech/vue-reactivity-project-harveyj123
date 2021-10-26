@@ -6,21 +6,25 @@
       <div class="img-gallery-container-outer">
     <div class="img-gallery-container">
       <div class="img-cont">
-      <img :src="image" id="img">
+      <img :src="image" id="img" v-bind:style="{ opacity:  opvalue, borderRadius: borderRadius + 'rem'}">
       </div>
       <div class="opacity-change-container">
-<input type="radio" id="none" value="None" name="opacity"  v-model="V">
-<label for="none" class="input">None</label>
-
-<input type="radio" id="op-val-1" value="0.25" name="opacity"  v-model="V" >
+<input type="radio" id="op-val-1" value="0.25" name="opacity"  v-model="opvalue" >
 <label for="op-val-1" class="input">0.25</label>
 
-<input type="radio" id="op-val-2" value="0.50" name="opacity"  v-model="V">
+<input type="radio" id="op-val-2" value="0.50" name="opacity"  v-model="opvalue">
 <label for="op-val-2" class="input">0.50</label>
 
-<input type="radio" id="op-val-3" value="0.75" name="opacity"  v-model="opValue">
+<input type="radio" id="op-val-3" value="0.75" name="opacity"  v-model="opvalue">
 <label for="op-val-3" class="input">0.75</label>
- <p>I am also feeling <em>{{V}}</em> today.</p>
+
+<input type="radio" id="op-val-4" value="1" name="opacity"  v-model="opvalue">
+<label for="op-val-4" class="input">No opacity</label>
+</div>
+<div>
+  <input v-model="borderRadius" placeholder="edit me" id="border-rad-val">
+  <label for="border-rad-val">input a value between 0-100(units are rem)</label>
+
 </div>
     </div>
     <div class="img-gallery-container" >
@@ -44,7 +48,8 @@ export default {
   components: {},
   data() {
     return {
-      V : "",
+       borderRadius: " rem",
+      opvalue : "",
       image : "https://www.personality-database.com/profile_images/349339.png",
       title: "Image Changer :3",
       images: [ {
@@ -86,6 +91,7 @@ export default {
 html,
 body,
 * {
+  background-color: #FBEFE4;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -133,9 +139,9 @@ width: 50%;
 }
 .list {
   
-  margin: .2rem;
-    height: 50%;
-  width: 30%;
+  margin: .3rem;
+    height: 30%;
+  width: 45%;
 
 }
 
@@ -143,8 +149,9 @@ width: 50%;
   cursor: pointer;
 }
 .img {
-  width: 100%;
-  height: 100%;
+  border-radius: 1rem;
+    width: 100%;
+     height: 100%;
 }
 .img-cont {
 
@@ -154,7 +161,7 @@ width: 50%;
 #img {
 
     width: 100%;
-  height: 100%;
+    max-height: 100%;
 }
 
 .opacity-change-container {
