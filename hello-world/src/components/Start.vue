@@ -8,7 +8,7 @@
       <div class="img-cont">
       <img :src="image" id="img" v-bind:style="{ opacity:  opvalue, borderRadius: borderRadius + 'rem'}">
       </div>
-      <div class="opacity-change-container">
+      <div class="change-img-container">
 <input type="radio" id="op-val-1" value="0.25" name="opacity"  v-model="opvalue" >
 <label for="op-val-1" class="input">0.25</label>
 
@@ -21,11 +21,27 @@
 <input type="radio" id="op-val-4" value="1" name="opacity"  v-model="opvalue">
 <label for="op-val-4" class="input">No opacity</label>
 </div>
-<div>
-  <input v-model="borderRadius" placeholder="edit me" id="border-rad-val">
+<div class="change-img-container">
+  <input v-model="borderRadius" id="border-rad-val">
   <label for="border-rad-val">input a value between 0-100(units are rem)</label>
-
 </div>
+  
+    <div class="slider-component">
+      <div class="slidecontainer">
+        <input
+          ref="input"
+          v-model="currentValue"
+          type="range"
+          :min="min"
+          :max="max"
+          class="slider"
+          @input="onInput"
+        >
+      </div>
+    </div>
+
+
+
     </div>
     <div class="img-gallery-container" >
         <ul class="img-gallery">
@@ -46,9 +62,24 @@
 export default {
   name: "Home",
   components: {},
+  props: {
+    value: {
+      type: Number,
+      required: true
+    },
+    min: {
+      type: Number,
+      required: true
+    },
+    max: {
+      type: Number,
+      required: true
+    }
+  },
   data() {
     return {
-       borderRadius: " rem",
+      currentValue: this.value,
+       borderRadius: "",
       opvalue : "",
       image : "https://www.personality-database.com/profile_images/349339.png",
       title: "Image Changer :3",
@@ -81,6 +112,10 @@ export default {
   methods: {
     updateImg(variantImage) {
       this.image = variantImage
+    },
+
+      onInput() {
+      this.$emit('input', parseInt(this.currentValue));
     }
 }}
 </script>
@@ -149,22 +184,24 @@ width: 50%;
   cursor: pointer;
 }
 .img {
-  border-radius: 1rem;
+  border-radius: .3rem;
     width: 100%;
      height: 100%;
 }
 .img-cont {
-
+    justify-content: center;
+  align-items: center;
+display: flex;
   height: 90%;
   width: 95%;
 }
 #img {
 
-    width: 100%;
-    max-height: 100%;
+     max-width: 85%;
+    height: 85%;
 }
 
-.opacity-change-container {
+.change-img-container {
     text-align: center;
   display: flex;
   justify-content: center;
@@ -175,6 +212,45 @@ width: 50%;
 
 .input {
 margin: 0 auto;
+}
+
+.slider-component .slidecontainer {
+	width: 100%;
+}
+
+.slider-component .slidecontainer .slider {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 100%;
+	height: 4px;
+	border-radius: 2px;
+	background: #c2c2c2;
+	outline: none;
+	opacity: 0.7;
+	-webkit-transition: .2s;
+	transition: opacity .2s;
+}
+
+.slider-component .slidecontainer .slider:hover {
+	opacity: 1;
+}
+
+.slider-component .slidecontainer {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 18px;
+	height: 18px;
+	background: #D8A22E;
+	cursor: pointer;
+	border-radius: 50%;
+}
+
+.slider-component .slidecontainer  {
+	width: 18px;
+	height: 18px;
+	background: #D8A22E;
+	cursor: pointer;
+	border-radius: 50%;
 }
 
 
