@@ -6,21 +6,8 @@
       <div class="img-gallery-container-outer">
     <div class="img-gallery-container">
       <div class="img-cont">
-      <img :src="image" id="img" v-bind:style="{ opacity:  opvalue, borderRadius: borderRadius + 'rem'}">
+      <img :src="image" id="img" v-bind:style="{ opacity:  currentValue/100 , borderRadius: borderRadius + 'rem'}">
       </div>
-      <div class="change-img-container">
-<input type="radio" id="op-val-1" value="0.25" name="opacity"  v-model="opvalue" >
-<label for="op-val-1" class="input">0.25</label>
-
-<input type="radio" id="op-val-2" value="0.50" name="opacity"  v-model="opvalue">
-<label for="op-val-2" class="input">0.50</label>
-
-<input type="radio" id="op-val-3" value="0.75" name="opacity"  v-model="opvalue">
-<label for="op-val-3" class="input">0.75</label>
-
-<input type="radio" id="op-val-4" value="1" name="opacity"  v-model="opvalue">
-<label for="op-val-4" class="input">No opacity</label>
-</div>
 <div class="change-img-container">
   <input v-model="borderRadius" id="border-rad-val">
   <label for="border-rad-val">input a value between 0-100(units are rem)</label>
@@ -32,8 +19,8 @@
           ref="input"
           v-model="currentValue"
           type="range"
-          :min="min"
-          :max="max"
+          :min="5"
+          :max="100"
           class="slider"
           @input="onInput"
         >
@@ -132,10 +119,6 @@ body,
   box-sizing: border-box;
 }
 
-.flex {
-  display: flex;
-  flex-direction: column;
-}
 .home {
   text-align: center;
   font-size: 2rem;
@@ -172,8 +155,7 @@ width: 50%;
    flex-wrap: wrap;
   list-style-type: none;
 }
-.list {
-  
+.list {  
   margin: .3rem;
     height: 30%;
   width: 45%;
@@ -206,7 +188,7 @@ display: flex;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 10%;
+  height: 5%;
   width: 100%;
 }
 
@@ -214,20 +196,14 @@ display: flex;
 margin: 0 auto;
 }
 
-.slider-component .slidecontainer {
-	width: 100%;
-}
 
-.slider-component .slidecontainer .slider {
-	-webkit-appearance: none;
+.slider {
 	appearance: none;
-	width: 100%;
-	height: 4px;
+	width: 70%;
+	height: .5rem;
 	border-radius: 2px;
-	background: #c2c2c2;
+	background: lightsalmon;
 	outline: none;
-	opacity: 0.7;
-	-webkit-transition: .2s;
 	transition: opacity .2s;
 }
 
@@ -236,22 +212,19 @@ margin: 0 auto;
 }
 
 .slider-component .slidecontainer {
-	-webkit-appearance: none;
-	appearance: none;
+
 	width: 18px;
 	height: 18px;
 	background: #D8A22E;
 	cursor: pointer;
 	border-radius: 50%;
+  width: 100%;
+	height: 1%;
+	background: #D8A22E;
+	cursor: pointer;
 }
 
-.slider-component .slidecontainer  {
-	width: 18px;
-	height: 18px;
-	background: #D8A22E;
-	cursor: pointer;
-	border-radius: 50%;
-}
+
 
 
 </style>
