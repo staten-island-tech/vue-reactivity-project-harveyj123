@@ -6,7 +6,8 @@
       <div class="img-gallery-container-outer">
     <div class="img-gallery-container">
       <div class="img-cont">
-      <img :src="image" id="img" v-bind:style="{ opacity:  currentValue/100 , borderRadius: borderRadius + 'rem'}">
+      <img :src="image" id="img" v-bind:style="{ opacity:  currentValue/100 , borderRadius: borderRadius + 'rem',
+      border: 'borderThickness' + borderVal}">
       </div>
 </div>
     <div class="img-gallery-container" >
@@ -43,6 +44,21 @@
         >
       </div>
  <label for="input">opacity</label>
+<div>
+<input type="radio" id="border-val-1" value="solid" v-model="borderVal">
+<label for="border-val-1">solid</label>
+<input type="radio" id="border-val-2" value="dashed" v-model="borderVal">
+<label for="border-val-2">dashed</label>
+<input type="radio" id="border-val-3" value="thick double" v-model="borderVal">
+<label for="border-val-3">thick double</label>
+<input type="radio" id="border-val-4" value="ridge" v-model="borderVal">
+<label for="border-val-4">ridge</label>
+<input type="radio" id="border-val-4" value="none" v-model="borderVal">
+<label for="border-val-4">no border</label>
+</div>
+
+<input id="border-thickness-val" v-model="borderThickness" placeholder="units in pixels">
+<label for="border-thickness-val">input a numerical val for border thickness</label>
     </div>
 
        </section>
@@ -73,6 +89,7 @@ export default {
     return {
       currentValue: this.value,
        borderRadius: "",
+       borderVal: "",
       opvalue : "",
       image : "https://www.personality-database.com/profile_images/349339.png",
       title: "Image Changer :3",
