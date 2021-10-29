@@ -8,12 +8,29 @@
       <div class="img-cont">
       <img :src="image" id="img" v-bind:style="{ opacity:  currentValue/100 , borderRadius: borderRadius + 'rem'}">
       </div>
-<div class="change-img-container">
-  <input v-model="borderRadius" id="border-rad-val">
-  <label for="border-rad-val">input a value between 0-100(units are rem)</label>
 </div>
-  
-    <div class="slider-component">
+    <div class="img-gallery-container" >
+        <ul class="img-gallery">
+          <li v-for="image in images" v-bind:key="image" class="list">
+            <img @click="updateImg(image.variantImage)" :src="image.variantImage" class="img" id="listImg">
+          </li>
+        </ul>
+    </div>
+    </div>
+    <div class="img-editer-container">
+ <div class="slidecontainer">
+        <input
+          ref="input"
+          v-model="borderRadius"
+          type="range"
+          :min="0"
+          :max="15"
+          class="slider"
+          @input="onInput"
+        >
+        
+          </div>
+            <label for="input">border radius</label>
       <div class="slidecontainer">
         <input
           ref="input"
@@ -25,18 +42,7 @@
           @input="onInput"
         >
       </div>
-    </div>
-
-
-
-    </div>
-    <div class="img-gallery-container" >
-        <ul class="img-gallery">
-          <li v-for="image in images" v-bind:key="image" class="list">
-            <img @click="updateImg(image.variantImage)" :src="image.variantImage" class="img" id="listImg">
-          </li>
-        </ul>
-    </div>
+ <label for="input">opacity</label>
     </div>
 
        </section>
@@ -132,7 +138,7 @@ body,
 .img-gallery-container-outer{
 display: flex;
 flex-direction: row;
-height: 95%;
+height: 100%;
 width: 100%;
 }
 
@@ -192,39 +198,30 @@ display: flex;
   width: 100%;
 }
 
-.input {
-margin: 0 auto;
-}
-
 
 .slider {
-	appearance: none;
-	width: 70%;
+	width: 65%;
 	height: .5rem;
 	border-radius: 2px;
 	background: lightsalmon;
-	outline: none;
-	transition: opacity .2s;
 }
 
-.slider-component .slidecontainer .slider:hover {
-	opacity: 1;
-}
 
-.slider-component .slidecontainer {
-
-	width: 18px;
-	height: 18px;
-	background: #D8A22E;
-	cursor: pointer;
-	border-radius: 50%;
+.slidecontainer {
+  margin: 2rem;
+  display: flex;
+  justify-content: center;
+    flex-direction: column;
+  align-items: center;
   width: 100%;
-	height: 1%;
-	background: #D8A22E;
-	cursor: pointer;
 }
 
-
-
-
+.img-editer-container {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+height: 40%;
+width: 80%;
+}
 </style>
