@@ -8,7 +8,7 @@
 
     <div class="img-gallery-container-outer">
       <div class="img-gallery-container">
-        <figure class="img-cont">
+        <figure class="img-container">
         <img :src="image" id="img" v-bind:style="{ opacity:  opvalue , borderRadius: borderRadius + 'rem',
         border: borderVal, filter: 'blur'+'('+blurValue+'px'+')'}">
       </figure>
@@ -26,17 +26,17 @@
 
     <div class="img-editer-container">
      
-     <div class="slidecontainer">
+     <div class="slide-container">
         <input type="range" min="0" max="15" v-model="borderRadius" id="borderRadiusSlider" class="slider">  
          <label for="borderRadiusSlider" class="sliderLabel">border radius</label> 
       </div>
 
-           <div class="slidecontainer">
+           <div class="slide-container">
         <input type="range" min="0" max="15" v-model="blurValue" id="blurSlider" class="slider">  
          <label for="blurSlider" class="sliderLabel">img blur</label> 
       </div>
 
-    <div class="slidecontainer">
+    <div class="slide-container">
         <input type="range" min="0.05" max="1" step="0.01" v-model="opvalue" id="opacitySlider" class="slider"> 
         <label for="opacitySlider" class="sliderLabel">slide the slider down to decrease opacity</label>
       </div>
@@ -174,7 +174,7 @@ width: 50%;
     width: 95%;
      height: 95%;
 }
-.img-cont {
+.img-container {
   justify-content: center;
   align-items: center;
   display: flex;
@@ -197,7 +197,7 @@ width: 50%;
 
 
 
-.slidecontainer {
+.slide-container {
   height: 20%;
   display: flex;
   justify-content: center;
