@@ -7,7 +7,7 @@
 
 
 <script>
-import Home from './components/Start.vue';
+import Home from './components/ImgGallery.vue';
 
 export default {
   name: 'App',
