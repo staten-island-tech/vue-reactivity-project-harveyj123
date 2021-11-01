@@ -16,7 +16,7 @@
 
     <figure class="img-gallery-container" >
         <ul class="img-gallery">
-          <li v-for="image in images" v-bind:key="image" class="list">
+          <li v-for="image in images" v-bind:key="image.variantId" class="list">
             <img @click="updateImg(image.variantImage)" :src="image.variantImage" class="img" id="listImg">
           </li>
         </ul>
@@ -80,6 +80,7 @@ export default {
       opvalue : "1",
       image : "https://i.pinimg.com/736x/53/03/86/53038646a6615d11ca2ffb6c47d4878c.jpg",
       title: "Image Changer",
+
       images: [ {
         variantId: 1,
         variantImage: 'https://i.pinimg.com/originals/10/46/ce/1046ce096a18aeac4074dfc23ee96958.jpg'
