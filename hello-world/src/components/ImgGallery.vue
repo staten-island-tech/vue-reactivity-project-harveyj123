@@ -76,7 +76,7 @@ export default {
       borderVal: "",
       opvalue : "1",
       image : "https://i.pinimg.com/736x/53/03/86/53038646a6615d11ca2ffb6c47d4878c.jpg",
-      title: "Image Changer",
+      title: "Image Changer uwu :3",
 
       images: [ {
         variantId: 1,
